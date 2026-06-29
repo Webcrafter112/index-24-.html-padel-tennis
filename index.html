@@ -12,6 +12,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+<!-- GSAP (Premium-Animationen) -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
 <style>
 /* ============================================================
    PADEL CLUB ALTHOFEN – KAPPEL
@@ -331,9 +335,39 @@ button{font-family:inherit;cursor:pointer}
   .reveal{opacity:1;transform:none;transition:none}
 }
 :focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:6px}
+
+/* =================== PREMIUM-ENHANCEMENTS =================== */
+/* Schwebende Lichteffekte (Aura) */
+.aura{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.aura span{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;will-change:transform}
+.aura .a1{width:42vw;height:42vw;left:-10vw;top:-8vh;background:radial-gradient(circle,rgba(46,134,212,.40),transparent 65%);animation:aura1 22s ease-in-out infinite}
+.aura .a2{width:36vw;height:36vw;right:-8vw;top:40vh;background:radial-gradient(circle,rgba(95,176,230,.34),transparent 65%);animation:aura2 28s ease-in-out infinite}
+.aura .a3{width:30vw;height:30vw;left:34vw;bottom:-12vh;background:radial-gradient(circle,rgba(169,206,92,.26),transparent 65%);animation:aura3 32s ease-in-out infinite}
+@keyframes aura1{0%,100%{transform:translate(0,0)}50%{transform:translate(6vw,5vh)}}
+@keyframes aura2{0%,100%{transform:translate(0,0)}50%{transform:translate(-5vw,6vh)}}
+@keyframes aura3{0%,100%{transform:translate(0,0)}50%{transform:translate(4vw,-5vh)}}
+/* Inhalt über den Auren halten */
+.site-header,.hero,.section,.marquee,.site-footer{position:relative;z-index:1}
+
+/* Cursor-Glow */
+.cursor-glow{position:fixed;left:0;top:0;width:26px;height:26px;border-radius:50%;z-index:80;pointer-events:none;
+  background:radial-gradient(circle,rgba(169,206,92,.85),rgba(95,176,230,.35) 60%,transparent 70%);
+  mix-blend-mode:screen;transform:translate(-50%,-50%);transition:width .25s,height .25s,opacity .25s;opacity:0}
+.cursor-glow.grow{width:64px;height:64px;opacity:.9}
+
+/* Hover-Micro-Interaktionen */
+.btn{will-change:transform}
+.feature,.offer,.stat-chip{transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease}
+.feature:hover,.offer:hover,.stat-chip:hover{transform:translateY(-6px)}
+
+@media (pointer:coarse){.cursor-glow{display:none}}
+@media (prefers-reduced-motion:reduce){.aura,.cursor-glow{display:none}}
 </style>
 </head>
 <body>
+
+<!-- Schwebende Lichteffekte -->
+<div class="aura" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
 
 <!-- ================= HEADER ================= -->
 <header class="site-header" id="header">
@@ -776,6 +810,52 @@ form.addEventListener('submit', (ev) => {
   form.querySelector('button[type=submit]').textContent = 'Gesendet ✓';
   form.querySelectorAll('input,select,textarea,button').forEach(i => i.disabled = true);
 });
+
+/* ---------- Premium-Enhancements ---------- */
+(function(){
+  const reduceMo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarse   = window.matchMedia('(pointer: coarse)').matches;
+
+  /* Cursor-Glow */
+  if (!coarse && !reduceMo){
+    const g = document.createElement('div');
+    g.className = 'cursor-glow';
+    document.body.appendChild(g);
+    let x = innerWidth/2, y = innerHeight/2, gx = x, gy = y;
+    addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; g.style.opacity = '1'; }, {passive:true});
+    document.querySelectorAll('a, button, .feature, .offer, .plan, .stat-chip').forEach(el => {
+      el.addEventListener('mouseenter', () => g.classList.add('grow'));
+      el.addEventListener('mouseleave', () => g.classList.remove('grow'));
+    });
+    (function loop(){ gx += (x-gx)*.18; gy += (y-gy)*.18;
+      g.style.transform = `translate(${gx}px, ${gy}px) translate(-50%, -50%)`;
+      requestAnimationFrame(loop); })();
+  }
+
+  /* Magnetische Buttons */
+  if (!coarse && !reduceMo){
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const r = btn.getBoundingClientRect();
+        const mx = e.clientX - r.left - r.width/2, my = e.clientY - r.top - r.height/2;
+        btn.style.transform = `translate(${mx*.18}px, calc(-3px + ${my*.3}px))`;
+      });
+      btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
+  }
+
+  /* GSAP: Hero-Intro + Parallax (graceful, falls GSAP nicht lädt) */
+  if (window.gsap && !reduceMo){
+    if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.hero-copy > *', {y:42, opacity:0, duration:1, ease:'power3.out', stagger:.12, delay:.15});
+    gsap.from('.spline-wrap',   {opacity:0, scale:.92, duration:1.2, ease:'power3.out', delay:.35});
+    if (window.ScrollTrigger){
+      gsap.to('.hero-court',   {yPercent:22, ease:'none', scrollTrigger:{trigger:'.hero',    start:'top top',    end:'bottom top', scrub:true}});
+      gsap.to('.spline-wrap',  {yPercent:-6, ease:'none', scrollTrigger:{trigger:'.hero',    start:'top top',    end:'bottom top', scrub:true}});
+      gsap.to('.opening-court',{yPercent:18, ease:'none', scrollTrigger:{trigger:'#opening', start:'top bottom', end:'bottom top', scrub:true}});
+    }
+  }
+})();
 </script>
 </body>
 </html>
