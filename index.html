@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- SEO -->
+  <title>Aurelia Padel — Play With Passion | Premium Padel Tennis Club</title>
+  <meta name="description" content="Aurelia Padel is a premium padel tennis brand and club. Book your first session, train with elite coaches, and play with passion. Every match begins with one courageous step." />
+  <meta name="keywords" content="padel, padel tennis, padel club, padel coaching, book padel session, premium padel, luxury sports" />
+  <meta name="author" content="Aurelia Padel" />
+  <link rel="canonical" href="https://aureliapadel.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Aurelia Padel — Play With Passion" />
+  <meta property="og:description" content="A premium padel tennis experience. Every match begins with one courageous step." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:url" content="https://aureliapadel.com/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aurelia Padel — Play With Passion" />
+  <meta name="twitter:description" content="A premium padel tennis experience. Every match begins with one courageous step." />
+
+  <!-- Performance / preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink:   '#0a0a0a',
+            sand:  '#e9e0d2',
+            beige: '#f4efe6',
+            cream: '#faf7f1',
+            dune:  '#c9bba4',
+            sky:   '#9db8cf',
+            mist:  '#cfdbe6',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            sans:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: {
+            luxe: '0.28em',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- GSAP -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Local styles & scripts -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/main.js"></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "Aurelia Padel",
+    "description": "Premium padel tennis club offering elite coaching and luxury court experiences.",
+    "sport": "Padel",
+    "url": "https://aureliapadel.com/",
+    "telephone": "+1-000-000-0000",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Marbella",
+      "addressCountry": "ES"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-cream text-ink font-sans antialiased selection:bg-ink selection:text-cream overflow-x-hidden">
+
+  <!-- Skip link (a11y) -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-ink focus:text-cream focus:px-4 focus:py-2 focus:rounded-full">Skip to content</a>
+
+  <!-- Loader -->
+  <div id="loader" class="fixed inset-0 z-[90] flex items-center justify-center bg-ink text-cream">
+    <div class="text-center">
+      <div class="font-display text-3xl tracking-luxe uppercase loader-word">Aurelia</div>
+      <div class="mt-5 mx-auto h-px w-40 overflow-hidden bg-white/15">
+        <span id="loader-bar" class="block h-full w-0 bg-cream"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating glow orbs -->
+  <div class="glow-field" aria-hidden="true">
+    <span class="glow glow--sky"></span>
+    <span class="glow glow--sand"></span>
+    <span class="glow glow--mist"></span>
+  </div>
+
+  <!-- Navigation -->
+  <header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
+    <nav class="glass mx-auto mt-4 flex max-w-7xl items-center justify-between rounded-full px-5 py-3 md:px-8" aria-label="Primary">
+      <a href="#hero" class="font-display text-xl md:text-2xl tracking-[0.2em] uppercase">Aurelia</a>
+
+      <ul class="hidden items-center gap-8 text-[0.72rem] uppercase tracking-[0.18em] text-ink/70 lg:flex">
+        <li><a class="nav-link" href="#why">Why Padel</a></li>
+        <li><a class="nav-link" href="#benefits">Benefits</a></li>
+        <li><a class="nav-link" href="#coaching">Coaching</a></li>
+        <li><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li><a class="nav-link" href="#testimonials">Voices</a></li>
+        <li><a class="nav-link" href="#faq">FAQ</a></li>
+      </ul>
+
+      <a href="#contact" class="hidden md:inline-flex items-center rounded-full bg-ink px-5 py-2.5 text-[0.7rem] uppercase tracking-[0.18em] text-cream transition-transform duration-300 hover:scale-[1.04] btn-magnetic">Book Now</a>
+
+      <button id="menu-btn" class="lg:hidden flex h-10 w-10 items-center justify-center rounded-full glass" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="menu-icon"><span></span><span></span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 translate-x-full bg-ink text-cream transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] lg:hidden" aria-hidden="true">
+    <div class="flex h-full flex-col items-center justify-center gap-7 text-center">
+      <a class="mobile-link font-display text-4xl" href="#why">Why Padel</a>
+      <a class="mobile-link font-display text-4xl" href="#benefits">Benefits</a>
+      <a class="mobile-link font-display text-4xl" href="#coaching">Coaching</a>
+      <a class="mobile-link font-display text-4xl" href="#gallery">Gallery</a>
+      <a class="mobile-link font-display text-4xl" href="#testimonials">Voices</a>
+      <a class="mobile-link font-display text-4xl" href="#faq">FAQ</a>
+      <a class="mobile-link mt-4 rounded-full border border-cream/40 px-8 py-3 text-sm uppercase tracking-[0.2em]" href="#contact">Book Your Session</a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section id="hero" class="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-ink text-cream">
+      <!-- Background video with cinematic image fallback layers -->
+      <div class="absolute inset-0">
+        <video
+          id="hero-video"
+          class="h-full w-full object-cover opacity-0 transition-opacity duration-1000"
+          autoplay muted loop playsinline preload="none"
+          poster="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=1920&q=80"
+          aria-hidden="true">
+          <!-- Drop your cinematic golden-hour reel here (e.g. assets/video/hero.mp4) -->
+          <source data-src="assets/video/hero.mp4" type="video/mp4" />
+        </video>
+        <!-- Ken-burns cinematic fallback (shown until/if no video) -->
+        <div id="hero-fallback" class="absolute inset-0">
+          <img
+            class="ken-burns h-full w-full object-cover"
+            src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=1920&q=80"
+            alt="Professional padel player stepping onto the court at golden hour"
+            fetchpriority="high" />
+        </div>
+        <!-- Cinematic grading overlays -->
+        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/30"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(10,10,10,0.65)_100%)]"></div>
+        <div class="grain absolute inset-0"></div>
+      </div>
+
+      <!-- Hero content -->
+      <div class="relative z-10 mx-auto max-w-4xl px-6 text-center">
+        <p data-hero="kicker" class="mb-6 text-[0.7rem] uppercase tracking-luxe text-cream/70">Premium Padel · Golden Hour</p>
+        <h1 class="font-display text-5xl leading-[0.95] sm:text-7xl md:text-8xl">
+          <span data-hero="line" class="block">Play With</span>
+          <span data-hero="line" class="block italic text-sand">Passion.</span>
+        </h1>
+        <p data-hero="sub" class="mx-auto mt-7 max-w-xl text-base font-light text-cream/80 sm:text-lg">
+          Every match begins with one courageous step.
+        </p>
+        <div data-hero="cta" class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href="#contact" class="btn-magnetic group inline-flex items-center gap-3 rounded-full bg-cream px-8 py-4 text-[0.78rem] uppercase tracking-[0.18em] text-ink transition-transform duration-300 hover:scale-[1.04]">
+            Book Your First Session
+            <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+          <a href="#why" class="inline-flex items-center gap-2 rounded-full border border-cream/30 px-8 py-4 text-[0.78rem] uppercase tracking-[0.18em] text-cream/90 transition-colors hover:bg-cream/10">
+            Discover
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll cue -->
+      <div data-hero="cue" class="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-cream/60">
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-[0.6rem] uppercase tracking-[0.3em]">Scroll</span>
+          <span class="scroll-cue h-10 w-px bg-cream/40"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <section class="border-y border-ink/10 bg-beige py-5 overflow-hidden" aria-hidden="true">
+      <div class="marquee flex whitespace-nowrap font-display text-2xl uppercase tracking-[0.2em] text-ink/40">
+        <span class="marquee__group">Confidence · Energy · Elegance · Passion · Power · Precision · Confidence · Energy · Elegance · Passion · Power · Precision ·&nbsp;</span>
+        <span class="marquee__group">Confidence · Energy · Elegance · Passion · Power · Precision · Confidence · Energy · Elegance · Passion · Power · Precision ·&nbsp;</span>
+      </div>
+    </section>
+
+    <!-- ============ WHY PADEL ============ -->
+    <section id="why" class="relative mx-auto max-w-7xl px-6 py-24 md:py-36">
+      <div class="grid items-center gap-14 lg:grid-cols-2">
+        <div class="reveal" data-parallax="0.08">
+          <img
+            class="aspect-[4/5] w-full rounded-3xl object-cover shadow-2xl"
+            loading="lazy" decoding="async"
+            src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=900&q=80"
+            alt="Close-up of a padel racket and ball on the court" />
+        </div>
+        <div>
+          <p class="reveal mb-5 text-[0.7rem] uppercase tracking-luxe text-ink/50">Why Padel</p>
+          <h2 class="reveal font-display text-4xl leading-tight md:text-6xl">The most <span class="italic">addictive</span> sport in the world.</h2>
+          <p class="reveal mt-6 max-w-lg text-ink/70">
+            Easy to learn, impossible to put down. Padel blends the finesse of tennis with the social rhythm of a club ritual — fast points, big smiles, and a community that feels like home from the very first serve.
+          </p>
+          <div class="mt-10 grid grid-cols-3 gap-6">
+            <div class="reveal"><div class="font-display text-4xl md:text-5xl" data-count="25">0</div><p class="mt-1 text-xs uppercase tracking-[0.15em] text-ink/50">Million players</p></div>
+            <div class="reveal"><div class="font-display text-4xl md:text-5xl" data-count="90">0</div><p class="mt-1 text-xs uppercase tracking-[0.15em] text-ink/50">Min to learn</p></div>
+            <div class="reveal"><div class="font-display text-4xl md:text-5xl" data-count="100">0</div><p class="mt-1 text-xs uppercase tracking-[0.15em] text-ink/50">% addictive</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BENEFITS ============ -->
+    <section id="benefits" class="bg-ink text-cream">
+      <div class="mx-auto max-w-7xl px-6 py-24 md:py-36">
+        <div class="mb-16 max-w-2xl">
+          <p class="reveal mb-5 text-[0.7rem] uppercase tracking-luxe text-cream/50">Benefits</p>
+          <h2 class="reveal font-display text-4xl leading-tight md:text-6xl">More than a game. A <span class="italic text-sand">way to move</span>.</h2>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- card -->
+          <article class="tilt reveal glass-dark rounded-3xl p-8">
+            <div class="benefit-icon mb-6">✦</div>
+            <h3 class="font-display text-2xl">Full-Body Energy</h3>
+            <p class="mt-3 text-sm text-cream/70">Burn up to 700 calories an hour while barely noticing — the rally keeps you moving with joy, not effort.</p>
+          </article>
+          <article class="tilt reveal glass-dark rounded-3xl p-8">
+            <div class="benefit-icon mb-6">◈</div>
+            <h3 class="font-display text-2xl">Sharper Mind</h3>
+            <p class="mt-3 text-sm text-cream/70">Quick decisions, angles and anticipation train focus and reaction time like meditation in motion.</p>
+          </article>
+          <article class="tilt reveal glass-dark rounded-3xl p-8">
+            <div class="benefit-icon mb-6">❖</div>
+            <h3 class="font-display text-2xl">Real Connection</h3>
+            <p class="mt-3 text-sm text-cream/70">Always played in pairs. Every session is a chance to bond, laugh and belong to something elegant.</p>
+          </article>
+          <article class="tilt reveal glass-dark rounded-3xl p-8">
+            <div class="benefit-icon mb-6">✧</div>
+            <h3 class="font-display text-2xl">Low Impact</h3>
+            <p class="mt-3 text-sm text-cream/70">Kind on joints, generous on results. A sport you can love for decades, at any age or level.</p>
+          </article>
+          <article class="tilt reveal glass-dark rounded-3xl p-8">
+            <div class="benefit-icon mb-6">◇</div>
+            <h3 class="font-display text-2xl">Lasting Confidence</h3>
+            <p class="mt-3 text-sm text-cream/70">Progress is visible fast. Each match returns you to life standing a little taller.</p>
+          </article>
+          <article class="tilt reveal glass-dark rounded-3xl p-8">
+            <div class="benefit-icon mb-6">✶</div>
+            <h3 class="font-display text-2xl">Pure Flow</h3>
+            <p class="mt-3 text-sm text-cream/70">That golden-hour state where the world goes quiet and the only thing that exists is the next point.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COACHING ============ -->
+    <section id="coaching" class="relative mx-auto max-w-7xl px-6 py-24 md:py-36">
+      <div class="grid items-center gap-14 lg:grid-cols-2">
+        <div class="order-2 lg:order-1">
+          <p class="reveal mb-5 text-[0.7rem] uppercase tracking-luxe text-ink/50">Coaching</p>
+          <h2 class="reveal font-display text-4xl leading-tight md:text-6xl">Trained by people who <span class="italic">obsess</span> over your progress.</h2>
+          <p class="reveal mt-6 max-w-lg text-ink/70">From your courageous first step to tournament finesse, our certified coaches build a path that's entirely yours — technique, tactics, and the quiet confidence of a true player.</p>
+
+          <ul class="mt-10 space-y-5">
+            <li class="reveal flex gap-5 border-b border-ink/10 pb-5">
+              <span class="font-display text-2xl text-dune">01</span>
+              <div><h3 class="font-medium">Private Sessions</h3><p class="text-sm text-ink/60">One-on-one refinement tailored to your goals and rhythm.</p></div>
+            </li>
+            <li class="reveal flex gap-5 border-b border-ink/10 pb-5">
+              <span class="font-display text-2xl text-dune">02</span>
+              <div><h3 class="font-medium">Group Clinics</h3><p class="text-sm text-ink/60">Small, social groups that turn fundamentals into instinct.</p></div>
+            </li>
+            <li class="reveal flex gap-5">
+              <span class="font-display text-2xl text-dune">03</span>
+              <div><h3 class="font-medium">Performance Path</h3><p class="text-sm text-ink/60">Video analysis and conditioning for the competitive spirit.</p></div>
+            </li>
+          </ul>
+          <a href="#contact" class="btn-magnetic mt-10 inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-[0.78rem] uppercase tracking-[0.18em] text-cream transition-transform duration-300 hover:scale-[1.04]">Meet Your Coach →</a>
+        </div>
+        <div class="order-1 lg:order-2 reveal" data-parallax="0.1">
+          <img
+            class="aspect-[4/5] w-full rounded-3xl object-cover shadow-2xl"
+            loading="lazy" decoding="async"
+            src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=80"
+            alt="Padel coach guiding a player through technique" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section id="gallery" class="bg-beige">
+      <div class="mx-auto max-w-7xl px-6 py-24 md:py-36">
+        <div class="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p class="reveal mb-5 text-[0.7rem] uppercase tracking-luxe text-ink/50">Gallery</p>
+            <h2 class="reveal font-display text-4xl leading-tight md:text-6xl">Moments in <span class="italic">motion</span>.</h2>
+          </div>
+          <p class="reveal max-w-sm text-sm text-ink/60">A glimpse of golden-hour rallies, cinematic impacts, and the quiet beauty of the game.</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
+          <figure class="gallery-item reveal col-span-2 row-span-2 overflow-hidden rounded-3xl">
+            <img class="h-full w-full object-cover" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=900&q=80" alt="Player serving at golden hour" />
+          </figure>
+          <figure class="gallery-item reveal overflow-hidden rounded-3xl">
+            <img class="h-full w-full object-cover" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=600&q=80" alt="Padel ball mid-impact" />
+          </figure>
+          <figure class="gallery-item reveal overflow-hidden rounded-3xl">
+            <img class="h-full w-full object-cover" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=600&q=80" alt="Close-up of athletic shoes on court" />
+          </figure>
+          <figure class="gallery-item reveal col-span-2 overflow-hidden rounded-3xl">
+            <img class="h-full w-full object-cover" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1530915365347-e35b749a0381?auto=format&fit=crop&w=900&q=80" alt="Dynamic rally on the padel court" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section id="testimonials" class="relative overflow-hidden bg-ink text-cream">
+      <div class="mx-auto max-w-7xl px-6 py-24 md:py-36">
+        <p class="reveal mb-5 text-center text-[0.7rem] uppercase tracking-luxe text-cream/50">Voices</p>
+        <h2 class="reveal mx-auto mb-16 max-w-2xl text-center font-display text-4xl leading-tight md:text-6xl">Players don't just return. They <span class="italic text-sand">belong</span>.</h2>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <blockquote class="reveal glass-dark rounded-3xl p-8">
+            <p class="font-display text-xl leading-relaxed">"My first session changed how I move through everything. I walked on nervous and left taller."</p>
+            <footer class="mt-6 flex items-center gap-3">
+              <span class="h-10 w-10 rounded-full bg-gradient-to-br from-sand to-dune"></span>
+              <span><span class="block text-sm font-medium">Sofia M.</span><span class="block text-xs text-cream/50">Member, 1 year</span></span>
+            </footer>
+          </blockquote>
+          <blockquote class="reveal glass-dark rounded-3xl p-8 md:mt-8">
+            <p class="font-display text-xl leading-relaxed">"The coaching is on another level. It feels designed, intentional — every detail considered."</p>
+            <footer class="mt-6 flex items-center gap-3">
+              <span class="h-10 w-10 rounded-full bg-gradient-to-br from-sky to-mist"></span>
+              <span><span class="block text-sm font-medium">Daniel R.</span><span class="block text-xs text-cream/50">Member, 8 months</span></span>
+            </footer>
+          </blockquote>
+          <blockquote class="reveal glass-dark rounded-3xl p-8">
+            <p class="font-display text-xl leading-relaxed">"It's the most beautiful hour of my week. Golden light, good people, pure energy."</p>
+            <footer class="mt-6 flex items-center gap-3">
+              <span class="h-10 w-10 rounded-full bg-gradient-to-br from-dune to-sky"></span>
+              <span><span class="block text-sm font-medium">Amara K.</span><span class="block text-xs text-cream/50">Member, 2 years</span></span>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section id="faq" class="mx-auto max-w-4xl px-6 py-24 md:py-36">
+      <p class="reveal mb-5 text-center text-[0.7rem] uppercase tracking-luxe text-ink/50">FAQ</p>
+      <h2 class="reveal mb-14 text-center font-display text-4xl leading-tight md:text-6xl">Good to <span class="italic">know</span>.</h2>
+
+      <div class="divide-y divide-ink/10 border-y border-ink/10">
+        <details class="faq-item group reveal py-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+            <span class="font-display text-xl md:text-2xl">Do I need any experience to start?</span>
+            <span class="faq-plus shrink-0 text-2xl transition-transform duration-300">+</span>
+          </summary>
+          <p class="mt-4 max-w-2xl text-ink/65">None at all. Padel is famously easy to pick up — most players are rallying within their first session. Our coaches meet you exactly where you are.</p>
+        </details>
+        <details class="faq-item group reveal py-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+            <span class="font-display text-xl md:text-2xl">What should I bring to my first session?</span>
+            <span class="faq-plus shrink-0 text-2xl transition-transform duration-300">+</span>
+          </summary>
+          <p class="mt-4 max-w-2xl text-ink/65">Just comfortable sportswear and clean court shoes. We provide premium rackets and balls for every first session — turn up and play.</p>
+        </details>
+        <details class="faq-item group reveal py-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+            <span class="font-display text-xl md:text-2xl">Can I come alone or do I need a partner?</span>
+            <span class="faq-plus shrink-0 text-2xl transition-transform duration-300">+</span>
+          </summary>
+          <p class="mt-4 max-w-2xl text-ink/65">Come exactly as you are. We'll match you into a friendly group or pair you with a coach — many lifelong friendships started right here.</p>
+        </details>
+        <details class="faq-item group reveal py-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+            <span class="font-display text-xl md:text-2xl">How do I book and what does it cost?</span>
+            <span class="faq-plus shrink-0 text-2xl transition-transform duration-300">+</span>
+          </summary>
+          <p class="mt-4 max-w-2xl text-ink/65">Use the form below to request your first session. We'll reach out with availability and a tailored introductory rate within 24 hours.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT / CTA ============ -->
+    <section id="contact" class="relative overflow-hidden bg-ink text-cream">
+      <div class="absolute inset-0 opacity-40">
+        <img class="h-full w-full object-cover" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=1600&q=80" alt="" aria-hidden="true" />
+        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/60"></div>
+      </div>
+      <div class="relative mx-auto grid max-w-7xl gap-14 px-6 py-24 md:py-36 lg:grid-cols-2">
+        <div>
+          <p class="reveal mb-5 text-[0.7rem] uppercase tracking-luxe text-cream/50">Contact</p>
+          <h2 class="reveal font-display text-4xl leading-tight md:text-6xl">Your courageous<br /><span class="italic text-sand">first step</span> starts here.</h2>
+          <p class="reveal mt-6 max-w-md text-cream/70">Book your first session and feel what playing with passion really means. We'll handle the rest.</p>
+
+          <div class="reveal mt-10 space-y-3 text-sm text-cream/70">
+            <p><span class="text-cream/40">Visit</span> &nbsp; Puerto Banús, Marbella · Spain</p>
+            <p><span class="text-cream/40">Call</span> &nbsp; +34 000 000 000</p>
+            <p><span class="text-cream/40">Email</span> &nbsp; play@aureliapadel.com</p>
+          </div>
+        </div>
+
+        <form class="reveal glass-dark space-y-5 rounded-3xl p-8" id="booking-form" novalidate>
+          <div>
+            <label for="name" class="mb-2 block text-xs uppercase tracking-[0.15em] text-cream/60">Name</label>
+            <input id="name" name="name" type="text" required autocomplete="name" class="w-full rounded-xl border border-cream/15 bg-cream/5 px-4 py-3 text-cream placeholder-cream/40 outline-none transition focus:border-sand focus:bg-cream/10" placeholder="Your name" />
+          </div>
+          <div>
+            <label for="email" class="mb-2 block text-xs uppercase tracking-[0.15em] text-cream/60">Email</label>
+            <input id="email" name="email" type="email" required autocomplete="email" class="w-full rounded-xl border border-cream/15 bg-cream/5 px-4 py-3 text-cream placeholder-cream/40 outline-none transition focus:border-sand focus:bg-cream/10" placeholder="you@email.com" />
+          </div>
+          <div>
+            <label for="level" class="mb-2 block text-xs uppercase tracking-[0.15em] text-cream/60">Experience level</label>
+            <select id="level" name="level" class="w-full rounded-xl border border-cream/15 bg-cream/5 px-4 py-3 text-cream outline-none transition focus:border-sand focus:bg-cream/10">
+              <option class="bg-ink">First time</option>
+              <option class="bg-ink">Beginner</option>
+              <option class="bg-ink">Intermediate</option>
+              <option class="bg-ink">Advanced</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="mb-2 block text-xs uppercase tracking-[0.15em] text-cream/60">Message <span class="normal-case text-cream/30">(optional)</span></label>
+            <textarea id="message" name="message" rows="3" class="w-full rounded-xl border border-cream/15 bg-cream/5 px-4 py-3 text-cream placeholder-cream/40 outline-none transition focus:border-sand focus:bg-cream/10" placeholder="Tell us your goals…"></textarea>
+          </div>
+          <button type="submit" class="btn-magnetic w-full rounded-full bg-cream px-8 py-4 text-[0.78rem] uppercase tracking-[0.18em] text-ink transition-transform duration-300 hover:scale-[1.02]">Book Your First Session</button>
+          <p id="form-status" class="hidden text-center text-sm text-sand" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-ink text-cream/60">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 border-t border-cream/10 px-6 py-10 md:flex-row">
+      <a href="#hero" class="font-display text-xl tracking-[0.2em] uppercase text-cream">Aurelia</a>
+      <p class="text-xs uppercase tracking-[0.15em]">© <span id="year"></span> Aurelia Padel · Play With Passion</p>
+      <div class="flex gap-6 text-xs uppercase tracking-[0.15em]">
+        <a href="#" class="transition-colors hover:text-cream">Instagram</a>
+        <a href="#" class="transition-colors hover:text-cream">YouTube</a>
+        <a href="#" class="transition-colors hover:text-cream">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom cursor glow -->
+  <div id="cursor-glow" class="pointer-events-none fixed left-0 top-0 z-[80] hidden md:block" aria-hidden="true"></div>
+
+</body>
+</html>
