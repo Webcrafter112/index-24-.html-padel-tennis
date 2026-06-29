@@ -1,58 +1,42 @@
-# Aurelia Padel — Premium Padel Tennis Landing Page
+# Padel Club Althofen – Kappel
 
-A high-end, cinematic landing page for a luxury padel tennis brand.
-Minimalistic luxury aesthetic (white / beige / sand / soft blue / black accents),
-Apple × Nike feel, with smooth 60fps GSAP animations.
+Pre-Launch One-Page-Website für den **Padel Club Althofen – Kappel** (Krappfeld, Kärnten).
+Bewirbt die **Eröffnung 2026** und sammelt unverbindliche Vormerkungen / Gründungsmitglieder.
 
-**Tagline:** *Play With Passion.* — Every match begins with one courageous step.
+## Überblick
 
-## ✨ Features
+- **Eine einzige `index.html`** – HTML, CSS und JavaScript inline, keine Build-Tools,
+  keine Frameworks. Logo & Favicon sind als Base64 eingebettet, dadurch ist die Datei
+  vollständig eigenständig.
+- Einzige externe Abhängigkeit: Google Fonts (**Anton** für Headlines, **Outfit** für Text);
+  optional **Spline** für die 3D-Bühne im Hero.
 
-- **Fullscreen cinematic hero** — autoplay background video with an elegant
-  Ken-Burns image fallback when no video asset is present.
-- **GSAP animations** — hero entrance timeline, scroll-triggered reveals,
-  parallax image blocks, and subtle background parallax.
-- **Glassmorphism navigation** that adapts on scroll, with an animated mobile menu.
-- **Micro-interactions** — magnetic buttons, 3D card tilt, custom cursor glow,
-  floating glowing light orbs, and an animated marquee.
-- **Sections:** Hero · Why Padel · Benefits · Coaching · Gallery · Testimonials · FAQ · Contact.
-- **Animated stat counters** and an accessible accordion FAQ.
-- **Front-end booking form** with inline validation.
+## Sektionen
 
-## 🧱 Tech
+Header (Glas-Effekt beim Scrollen) · Hero (Court-Linien, Stat-Chips, Spline-Platzhalter) ·
+Marquee · Der Sport · Die Anlage · So spielst du bei uns · Gründungsmitglied (3 Tarife) ·
+Eröffnung mit Live-Countdown & Timeline · Kontakt mit Vormerk-Formular · Footer.
 
-- HTML5 (semantic, accessible — skip link, ARIA, reduced-motion support)
-- Tailwind CSS (CDN, with a custom luxury theme)
-- Vanilla JavaScript (no build step)
-- GSAP + ScrollTrigger
-- Lazy-loaded images/video, preconnects, SEO + Open Graph + JSON-LD
+## Features
 
-## 📁 Structure
+- Vereins-Farbwelt aus dem Logo (Navy, Royal, Sky, Lime).
+- Scroll-Reveal-Animationen (`IntersectionObserver`), gestaffelte Verzögerung.
+- Live-Countdown auf die Eröffnung (13.09.2026).
+- Mobile Navigation, Header-Wechsel beim Scrollen.
+- Vormerk-Formular mit Inline-Validierung und Erfolgsmeldung (Frontend-Demo).
+- Barrierefrei: `aria-label`s, respektiert `prefers-reduced-motion`.
 
-```
-index.html              # Markup + Tailwind config + SEO metadata
-assets/css/styles.css   # Glassmorphism, glow, grain, marquee, reveals
-assets/js/main.js       # Interactions + GSAP timelines
-assets/video/           # Drop hero.mp4 here (see its README)
-```
+## Starten
 
-## 🚀 Run
-
-It's a static site — just open `index.html`, or serve locally:
+Statische Seite – einfach `index.html` öffnen, oder lokal servieren:
 
 ```bash
 python3 -m http.server 8000
-# then visit http://localhost:8000
+# dann http://localhost:8000 öffnen
 ```
 
-## 🎬 Adding the hero video
+## 3D-Animation einbinden (optional)
 
-Place a cinematic reel at `assets/video/hero.mp4`. The page detects it
-automatically and fades it in; otherwise the image fallback stays.
-See `assets/video/README.md` for the suggested storyboard and encoding tips.
-
-## ♿ Accessibility & performance
-
-- Respects `prefers-reduced-motion` (animations disabled, content visible).
-- Keyboard-navigable, focus-visible skip link, ARIA-labelled controls.
-- Lazy loading, `decoding="async"`, and `fetchpriority` hints for fast loads.
+Im Hero ist eine quadratische Bühne mit Platzhalter vorbereitet. Zum Aktivieren einer
+Spline-Szene das Viewer-Skript im `<head>` ergänzen und den Platzhalter durch
+`<spline-viewer url="…/scene.splinecode">` ersetzen (Anleitung als Kommentar im Code).
