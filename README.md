@@ -57,6 +57,13 @@ python3 -m http.server 8000
 # dann http://localhost:8000 öffnen
 ```
 
+## Offline-Version
+
+`index-offline.html` ist eine **vollständig eigenständige** Variante: GSAP,
+ScrollTrigger, Three.js und die Schriften (Anton, Outfit) sind direkt in die
+Datei eingebettet. Sie funktioniert komplett **ohne Internet** (0 externe
+Requests) – einfach doppelklicken. Größe ~1 MB.
+
 ## 3D-Animation
 
 Der Hero zeigt einen mit **Three.js** live gerenderten Padelcourt (rotierend,
